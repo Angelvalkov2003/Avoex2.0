@@ -63,13 +63,7 @@ export default function Home() {
           <div className="inline-block p-0.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl">
             <a
               href="#contact"
-              className="inline-block px-8 py-4 bg-white rounded-full font-semibold text-lg"
-              style={{
-                WebkitTextFillColor: 'transparent',
-                backgroundImage: 'linear-gradient(135deg, #2563eb, #9333ea, #db2777)',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-              }}
+              className="inline-block px-8 py-4 bg-white rounded-full font-semibold text-lg text-gray-900 hover:bg-gray-50 transition-colors"
             >
               Book a Free Consultation
             </a>
