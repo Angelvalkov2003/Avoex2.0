@@ -131,7 +131,10 @@ export default function Home() {
       {/* Hero Section - Home */}
       <section
         id="home"
-        className="py-20 px-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"
+        className="py-20 px-6"
+        style={{
+          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.6) 0%, rgba(139, 92, 246, 0.6) 50%, rgba(236, 72, 153, 0.6) 100%)',
+        }}
       >
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
