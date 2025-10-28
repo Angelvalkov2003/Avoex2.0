@@ -22,7 +22,9 @@ export default function Home() {
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Avoex</h1>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Avoex
+            </h1>
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="text-gray-700 hover:text-gray-900">
                 Home
@@ -48,24 +50,30 @@ export default function Home() {
       </nav>
 
       {/* Hero Section - Home */}
-      <section
-        id="home"
-        className="py-20 px-6"
-      >
+      <section id="home" className="py-20 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
             We grow your business so you can achieve better results.
           </h2>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
             Websites, management software, automations, social media ads, custom
             banners & posts, and SEO — all designed to help you attract more
             clients.
           </p>
+          <a
+            href="#contact"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 border-2 border-white/30 rounded-full font-semibold text-lg text-white hover:opacity-90 hover:border-white transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+          >
+            Book a Free Consultation
+          </a>
         </div>
       </section>
 
       {/* Our Services */}
-      <section id="services" className="py-20 px-6 bg-white/10 backdrop-blur-sm">
+      <section
+        id="services"
+        className="py-20 px-6 bg-white/10 backdrop-blur-sm"
+      >
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Our Services
@@ -155,7 +163,9 @@ export default function Home() {
 
             {/* SEO */}
             <div className="p-6 bg-white/95 rounded-lg shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
-              <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">SEO</h3>
+              <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                SEO
+              </h3>
               <p className="text-gray-600">
                 Search engine optimization to improve your website's visibility
                 and rankings. Ideal for: Businesses wanting organic traffic
@@ -334,7 +344,10 @@ export default function Home() {
           <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Contact Us
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-6 bg-white/95 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6 bg-white/95 backdrop-blur-sm p-8 rounded-lg shadow-lg"
+          >
             <div>
               <label
                 htmlFor="email"
