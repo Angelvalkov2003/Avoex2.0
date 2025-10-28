@@ -24,7 +24,7 @@ export default function Home() {
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Avoex
-            </h1>
+          </h1>
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="text-gray-700 hover:text-gray-900">
                 Home
@@ -60,12 +60,20 @@ export default function Home() {
             banners & posts, and SEO — all designed to help you attract more
             clients.
           </p>
-          <a
-            href="#contact"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 border-2 border-white/30 rounded-full font-semibold text-lg text-white hover:opacity-90 hover:border-white transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
-          >
-            Book a Free Consultation
-          </a>
+          <div className="inline-block p-0.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl">
+            <a
+              href="#contact"
+              className="inline-block px-8 py-4 bg-white rounded-full font-semibold text-lg"
+              style={{
+                WebkitTextFillColor: 'transparent',
+                backgroundImage: 'linear-gradient(135deg, #2563eb, #9333ea, #db2777)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+              }}
+            >
+              Book a Free Consultation
+            </a>
+          </div>
         </div>
       </section>
 
