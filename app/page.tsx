@@ -10,6 +10,8 @@ export default function Home() {
     description: "",
   });
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
@@ -24,7 +26,7 @@ export default function Home() {
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Avoex
-          </h1>
+            </h1>
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="text-gray-700 hover:text-gray-900">
                 Home
@@ -45,12 +47,92 @@ export default function Home() {
                 Contact
               </a>
             </div>
+            {/* Mobile menu button */}
+            <button
+              className="md:hidden flex flex-col space-y-1.5"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              <span className="block w-6 h-0.5 bg-gray-700 transition-all"></span>
+              <span className="block w-6 h-0.5 bg-gray-700 transition-all"></span>
+              <span className="block w-6 h-0.5 bg-gray-700 transition-all"></span>
+            </button>
           </div>
         </div>
       </nav>
 
+      {/* Mobile Menu Backdrop */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden transition-opacity"
+          onClick={() => setIsMobileMenuOpen(false)}
+        ></div>
+      )}
+
+      {/* Mobile Menu Sidebar */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col p-6">
+          <button
+            className="self-end mb-6 text-2xl text-gray-700"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            ×
+          </button>
+          <div className="flex flex-col space-y-4">
+            <a
+              href="#home"
+              className="text-gray-700 hover:text-gray-900 py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </a>
+            <a
+              href="#services"
+              className="text-gray-700 hover:text-gray-900 py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Services
+            </a>
+            <a
+              href="#process"
+              className="text-gray-700 hover:text-gray-900 py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Process
+            </a>
+            <a
+              href="#about"
+              className="text-gray-700 hover:text-gray-900 py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About Us
+            </a>
+            <a
+              href="#faq"
+              className="text-gray-700 hover:text-gray-900 py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Q&A
+            </a>
+            <a
+              href="#contact"
+              className="text-gray-700 hover:text-gray-900 py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section - Home */}
-      <section id="home" className="py-20 px-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+      <section
+        id="home"
+        className="py-20 px-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"
+      >
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
             We grow your business so you can achieve better results.
@@ -72,10 +154,7 @@ export default function Home() {
       </section>
 
       {/* Our Services */}
-      <section
-        id="services"
-        className="py-20 px-6 bg-white"
-      >
+      <section id="services" className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
             Our Services
