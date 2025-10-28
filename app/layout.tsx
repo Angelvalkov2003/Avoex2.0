@@ -16,6 +16,30 @@ export const metadata: Metadata = {
   title: "Avoex - We grow your business so you can achieve better results",
   description:
     "Websites, management software, automations, social media ads, custom banners & posts, and SEO — all designed to help you attract more clients.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
+  openGraph: {
+    title: "Avoex - We grow your business so you can achieve better results",
+    description:
+      "Websites, management software, automations, social media ads, custom banners & posts, and SEO — all designed to help you attract more clients.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Avoex Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Avoex - We grow your business so you can achieve better results",
+    description:
+      "Websites, management software, automations, social media ads, custom banners & posts, and SEO — all designed to help you attract more clients.",
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({
