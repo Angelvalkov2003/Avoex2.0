@@ -17,7 +17,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
         <div className="container mx-auto px-6 py-4">
@@ -50,7 +50,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section - Home */}
-      <section id="home" className="py-20 px-6">
+      <section id="home" className="py-20 px-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
             We grow your business so you can achieve better results.
@@ -74,15 +74,15 @@ export default function Home() {
       {/* Our Services */}
       <section
         id="services"
-        className="py-20 px-6 bg-white/10 backdrop-blur-sm"
+        className="py-20 px-6 bg-white"
       >
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
             Our Services
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Static Website */}
-            <div className="p-6 bg-white/95 rounded-lg shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Static Website
               </h3>
@@ -94,7 +94,7 @@ export default function Home() {
             </div>
 
             {/* Booking Site */}
-            <div className="p-6 bg-white/95 rounded-lg shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Booking Site
               </h3>
@@ -106,7 +106,7 @@ export default function Home() {
             </div>
 
             {/* E-commerce */}
-            <div className="p-6 bg-white/95 rounded-lg shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 E-commerce
               </h3>
@@ -118,7 +118,7 @@ export default function Home() {
             </div>
 
             {/* Management Software */}
-            <div className="p-6 bg-white/95 rounded-lg shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Management Software
               </h3>
@@ -130,7 +130,7 @@ export default function Home() {
             </div>
 
             {/* Automations */}
-            <div className="p-6 bg-white/95 rounded-lg shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Automations
               </h3>
@@ -141,7 +141,7 @@ export default function Home() {
             </div>
 
             {/* Social Media Ads */}
-            <div className="p-6 bg-white/95 rounded-lg shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Social Media Ads
               </h3>
@@ -153,7 +153,7 @@ export default function Home() {
             </div>
 
             {/* Custom Banners & Posts */}
-            <div className="p-6 bg-white/95 rounded-lg shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Custom Banners & Posts
               </h3>
@@ -164,7 +164,7 @@ export default function Home() {
             </div>
 
             {/* SEO */}
-            <div className="p-6 bg-white/95 rounded-lg shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
+            <div className="p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 SEO
               </h3>
@@ -179,85 +179,85 @@ export default function Home() {
       </section>
 
       {/* Process */}
-      <section id="process" className="py-20 px-6 bg-white/10 backdrop-blur-sm">
+      <section id="process" className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
             Our Process
           </h2>
           <div className="space-y-8">
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
                 1
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2 text-white">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">
                   Initial Consultation
                 </h3>
-                <p className="text-white/80">
+                <p className="text-gray-600">
                   Meeting or chat for an estimated price
                 </p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
                 2
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2 text-white">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">
                   Requirements Meeting
                 </h3>
-                <p className="text-white/80">
+                <p className="text-gray-600">
                   Meeting to clarify the final product
                 </p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
                 3
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2 text-white">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">
                   Demo Creation
                 </h3>
-                <p className="text-white/80">Building a demo</p>
+                <p className="text-gray-600">Building a demo</p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
                 4
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2 text-white">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">
                   Revisions
                 </h3>
-                <p className="text-white/80">Changes</p>
+                <p className="text-gray-600">Changes</p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
                 5
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2 text-white">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">
                   Finalization
                 </h3>
-                <p className="text-white/80">Finalization</p>
+                <p className="text-gray-600">Finalization</p>
               </div>
             </div>
 
             <div className="flex gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
                 6
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2 text-white">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">
                   Maintenance
                 </h3>
-                <p className="text-white/80">Maintenance</p>
+                <p className="text-gray-600">Maintenance</p>
               </div>
             </div>
           </div>
@@ -265,20 +265,20 @@ export default function Home() {
       </section>
 
       {/* About Us */}
-      <section id="about" className="py-20 px-6 bg-white/10 backdrop-blur-sm">
+      <section id="about" className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
             About Us
           </h2>
           <div className="prose max-w-none">
-            <p className="text-lg text-white/90 mb-6">
+            <p className="text-lg text-gray-700 mb-6">
               We are Avoex, a company dedicated to helping businesses achieve
               their goals through technology and digital solutions. Our team
               combines expertise in web development, design, and digital
               marketing to deliver results that drive growth.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="p-6 bg-white/95 rounded-lg backdrop-blur-sm">
+              <div className="p-6 bg-gray-50 rounded-lg">
                 <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                   Our Strengths
                 </h3>
@@ -289,7 +289,7 @@ export default function Home() {
                   <li>✓ Ongoing support and maintenance</li>
                 </ul>
               </div>
-              <div className="p-6 bg-white/95 rounded-lg backdrop-blur-sm">
+              <div className="p-6 bg-gray-50 rounded-lg">
                 <h3 className="text-xl font-semibold mb-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                   Why Choose Us
                 </h3>
@@ -306,9 +306,9 @@ export default function Home() {
       </section>
 
       {/* Q&A Section */}
-      <section id="faq" className="py-20 px-6 bg-white/10 backdrop-blur-sm">
+      <section id="faq" className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
             Questions & Answers
           </h2>
           <div className="space-y-6">
@@ -341,14 +341,14 @@ export default function Home() {
       </section>
 
       {/* Contact Us */}
-      <section id="contact" className="py-20 px-6 bg-white/10 backdrop-blur-sm">
+      <section id="contact" className="py-20 px-6 bg-white">
         <div className="container mx-auto max-w-2xl">
-          <h2 className="text-4xl font-bold text-center mb-12 text-white">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
             Contact Us
           </h2>
           <form
             onSubmit={handleSubmit}
-            className="space-y-6 bg-white/95 backdrop-blur-sm p-8 rounded-lg shadow-lg"
+            className="space-y-6 bg-gray-50 p-8 rounded-lg shadow-lg"
           >
             <div>
               <label
@@ -453,7 +453,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black/20 backdrop-blur-sm text-white py-8 px-6">
+      <footer className="bg-gray-900 text-white py-8 px-6">
         <div className="container mx-auto text-center">
           <p>&copy; 2024 Avoex. All rights reserved.</p>
         </div>
@@ -466,7 +466,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border border-white/20 rounded-lg bg-white/95 backdrop-blur-sm">
+    <div className="border border-gray-200 rounded-lg bg-gray-50">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/50 transition-colors"
