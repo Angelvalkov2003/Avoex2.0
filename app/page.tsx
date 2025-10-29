@@ -13,6 +13,7 @@ export default function Home() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<any>(null);
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
 
   const servicesDetails = {
     "Static Website": {
@@ -128,6 +129,21 @@ export default function Home() {
       ideal:
         "Businesses wanting organic traffic growth and better search rankings",
       price: "Starting from €400/month",
+    },
+  };
+
+  const serviceCategories = {
+    Websites: {
+      services: ["Static Website", "Booking Site", "E-commerce"],
+      description: "Professional websites tailored to your business needs",
+    },
+    Software: {
+      services: ["Management Software", "Automations"],
+      description: "Custom software solutions and automation systems",
+    },
+    Marketing: {
+      services: ["Social Media Ads", "Custom Banners & Posts", "SEO"],
+      description: "Digital marketing services to grow your business",
     },
   };
 
@@ -486,150 +502,79 @@ export default function Home() {
               Our Services
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Static Website */}
-            <div
-              onClick={() =>
-                setSelectedService(servicesDetails["Static Website"])
-              }
-              className="p-6 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer"
-            >
-              <h3 className="text-xl font-semibold mb-4 flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent text-center">
-                Static Website
-              </h3>
-              <p className="text-center text-sm text-gray-600 mb-8">
-                Perfect for businesses that need a professional online presence
-                with basic information.
-              </p>
-              <p className="text-center text-sm text-blue-600 mt-auto">
-                Click me for more info
-              </p>
-            </div>
+          {/* Main Categories with Dropdown */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {Object.entries(serviceCategories).map(([category, data]) => {
+              const isOpen = openCategory === category;
+              return (
+                <div key={category} className="relative">
+                  {/* Category Card */}
+                  <div
+                    onClick={() => setOpenCategory(isOpen ? null : category)}
+                    className="p-8 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col cursor-pointer"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        {category}
+                      </h3>
+                      <svg
+                        className={`w-5 h-5 text-blue-600 transition-transform duration-300 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-4">
+                      {data.description}
+                    </p>
+                  </div>
 
-            {/* Booking Site */}
-            <div
-              onClick={() =>
-                setSelectedService(servicesDetails["Booking Site"])
-              }
-              className="p-6 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer"
-            >
-              <h3 className="text-xl font-semibold mb-4 flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent text-center">
-                Booking Site
-              </h3>
-              <p className="text-center text-sm text-gray-600 mb-8">
-                Online scheduling and appointment booking system.
-              </p>
-              <p className="text-center text-sm text-blue-600 mt-auto">
-                Click me for more info
-              </p>
-            </div>
-
-            {/* E-commerce */}
-            <div
-              onClick={() => setSelectedService(servicesDetails["E-commerce"])}
-              className="p-6 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer"
-            >
-              <h3 className="text-xl font-semibold mb-4 flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent text-center">
-                E-commerce
-              </h3>
-              <p className="text-center text-sm text-gray-600 mb-8">
-                Complete online store with shopping cart, payments, and
-                inventory management.
-              </p>
-              <p className="text-center text-sm text-blue-600 mt-auto">
-                Click me for more info
-              </p>
-            </div>
-
-            {/* Management Software */}
-            <div
-              onClick={() =>
-                setSelectedService(servicesDetails["Management Software"])
-              }
-              className="p-6 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer"
-            >
-              <h3 className="text-xl font-semibold mb-4 flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent text-center">
-                Management Software
-              </h3>
-              <p className="text-center text-sm text-gray-600 mb-8">
-                Custom software solutions to streamline your business
-                operations.
-              </p>
-              <p className="text-center text-sm text-blue-600 mt-auto">
-                Click me for more info
-              </p>
-            </div>
-
-            {/* Automations */}
-            <div
-              onClick={() => setSelectedService(servicesDetails["Automations"])}
-              className="p-6 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer"
-            >
-              <h3 className="text-xl font-semibold mb-4 flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent text-center">
-                Automations
-              </h3>
-              <p className="text-center text-sm text-gray-600 mb-8">
-                Automate repetitive tasks to save time and increase efficiency.
-              </p>
-              <p className="text-center text-sm text-blue-600 mt-auto">
-                Click me for more info
-              </p>
-            </div>
-
-            {/* Social Media Ads */}
-            <div
-              onClick={() =>
-                setSelectedService(servicesDetails["Social Media Ads"])
-              }
-              className="p-6 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer"
-            >
-              <h3 className="text-xl font-semibold mb-4 flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent text-center">
-                Social Media Ads
-              </h3>
-              <p className="text-center text-sm text-gray-600 mb-8">
-                Strategic paid advertising campaigns to reach your target
-                audience.
-              </p>
-              <p className="text-center text-sm text-blue-600 mt-auto">
-                Click me for more info
-              </p>
-            </div>
-
-            {/* Custom Banners & Posts */}
-            <div
-              onClick={() =>
-                setSelectedService(servicesDetails["Custom Banners & Posts"])
-              }
-              className="p-6 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer"
-            >
-              <h3 className="text-xl font-semibold mb-4 flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent text-center">
-                Custom Banners & Posts
-              </h3>
-              <p className="text-center text-sm text-gray-600 mb-8">
-                Professional graphic design for your social media and marketing
-                materials.
-              </p>
-              <p className="text-center text-sm text-blue-600 mt-auto">
-                Click me for more info
-              </p>
-            </div>
-
-            {/* SEO */}
-            <div
-              onClick={() => setSelectedService(servicesDetails["SEO"])}
-              className="p-6 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer"
-            >
-              <h3 className="text-xl font-semibold mb-4 flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent text-center">
-                SEO
-              </h3>
-              <p className="text-center text-sm text-gray-600 mb-8">
-                Search engine optimization to improve your website's visibility
-                and rankings.
-              </p>
-              <p className="text-center text-sm text-blue-600 mt-auto">
-                Click me for more info
-              </p>
-            </div>
+                  {/* Dropdown Menu */}
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      isOpen
+                        ? "max-h-96 opacity-100 mt-4"
+                        : "max-h-0 opacity-0 mt-0"
+                    }`}
+                  >
+                    <div className="bg-white rounded-lg shadow-lg border border-gray-100 p-4 space-y-2">
+                      {data.services.map((serviceName) => {
+                        const service =
+                          servicesDetails[
+                            serviceName as keyof typeof servicesDetails
+                          ];
+                        return (
+                          <div
+                            key={serviceName}
+                            onClick={() => {
+                              setSelectedService(service);
+                              setOpenCategory(null);
+                            }}
+                            className="p-4 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg hover:shadow-md transition-all cursor-pointer border border-transparent hover:border-blue-200"
+                          >
+                            <h4 className="text-lg font-semibold mb-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                              {service.title}
+                            </h4>
+                            <p className="text-sm text-gray-600">
+                              {service.description}
+                            </p>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
