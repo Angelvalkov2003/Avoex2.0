@@ -1026,9 +1026,6 @@ export default function Home() {
             </div>
 
             <div className="border-t pt-6">
-              <p className="text-2xl font-bold text-blue-600">
-                {selectedService.price}
-              </p>
               <a
                 href="#contact"
                 onClick={() => setSelectedService(null)}
