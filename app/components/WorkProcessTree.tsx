@@ -48,7 +48,7 @@ export default function WorkProcessTree() {
               key={step.id}
               className="flex items-start gap-6 p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="w-12 h-12 flex items-center justify-center text-2xl bg-gray-100 rounded-lg flex-shrink-0">
+              <div className="w-12 h-12 flex items-center justify-center text-2xl flex-shrink-0">
                 {step.icon}
               </div>
               <div className="flex-1">
@@ -71,4 +71,3 @@ export default function WorkProcessTree() {
     </div>
   );
 }
-

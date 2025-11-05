@@ -125,10 +125,20 @@ export default function Home() {
 
       <ServicesSectionWrapper />
 
-      <section id="process" className="py-20 px-6" style={{ backgroundColor: '#fffaea', fontFamily: '"Cy Grotesk Grand", sans-serif' }}>
+      <section
+        id="process"
+        className="py-20 px-6"
+        style={{
+          backgroundImage: "url(/background2.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          fontFamily: '"Cy Grotesk Grand", sans-serif',
+        }}
+      >
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-black">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
               Our Work Process
             </h2>
           </div>
@@ -136,7 +146,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="py-20 px-6" style={{ backgroundColor: '#fffaea', fontFamily: '"Cy Grotesk Grand", sans-serif' }}>
+      <section
+        id="about"
+        className="py-20 px-6"
+        style={{
+          backgroundColor: "#fffaea",
+          fontFamily: '"Cy Grotesk Grand", sans-serif',
+        }}
+      >
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-6 text-black">
@@ -147,22 +164,22 @@ export default function Home() {
             <div className="space-y-4">
               <p className="text-lg text-black">
                 We are a digital marketing agency and web design company
-                specializing in helping businesses grow through
-                digitalization. Our goal is to help you attract more clients
-                and achieve better results. We can help with professional
-                website design and development to make your business
-                discoverable online. Our marketing agency services help you
-                reach more customers and establish a professional online
-                presence. We also create custom management software and
-                automation solutions to streamline your operations, or help
-                you realize your digital ideas through expert web development.
+                specializing in helping businesses grow through digitalization.
+                Our goal is to help you attract more clients and achieve better
+                results. We can help with professional website design and
+                development to make your business discoverable online. Our
+                marketing agency services help you reach more customers and
+                establish a professional online presence. We also create custom
+                management software and automation solutions to streamline your
+                operations, or help you realize your digital ideas through
+                expert web development.
               </p>
               <p className="text-lg text-black">
                 And why choose us - our work process is the best, because we
-                don't work with unnecessary people and one programmer will
-                also be your project manager, and this will ensure that
-                everyone in the process is familiar with everything, there is
-                no delay and no gaps in quality.
+                don't work with unnecessary people and one programmer will also
+                be your project manager, and this will ensure that everyone in
+                the process is familiar with everything, there is no delay and
+                no gaps in quality.
               </p>
             </div>
             <div className="flex justify-center md:justify-end">
@@ -254,7 +271,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-6" style={{ backgroundColor: '#fffaea', fontFamily: '"Cy Grotesk Grand", sans-serif' }}>
+      <section
+        id="contact"
+        className="py-20 px-6"
+        style={{
+          backgroundImage: "url(/background3.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          fontFamily: '"Cy Grotesk Grand", sans-serif',
+        }}
+      >
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-6 text-black">
@@ -265,10 +292,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="faq" className="py-20 px-6" style={{ backgroundColor: '#fffaea', fontFamily: '"Cy Grotesk Grand", sans-serif' }}>
+      <section
+        id="faq"
+        className="py-20 px-6"
+        style={{
+          backgroundColor: "#44a3ff",
+          fontFamily: '"Cy Grotesk Grand", sans-serif',
+        }}
+      >
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-black">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
               Questions & Answers
             </h2>
           </div>
