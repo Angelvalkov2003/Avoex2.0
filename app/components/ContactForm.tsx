@@ -255,9 +255,8 @@ export default function ContactForm() {
 
   return (
     <>
-      {/* Success notification with checkmark - slides down from top */}
       {submitMessage && submitMessage.type === "success" && (
-        <div className="fixed top-0 left-0 right-0 z-50 animate-slide-down">
+        <div className="fixed top-0 left-0 right-0 z-50">
           <div className="max-w-md mx-auto mt-4 bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3">
             <svg
               className="w-6 h-6 flex-shrink-0"
@@ -279,267 +278,61 @@ export default function ContactForm() {
 
       <form
         onSubmit={handleSubmit}
-        className="space-y-8 bg-white/80 backdrop-blur-xl p-10 rounded-2xl shadow-2xl border border-white/20 relative overflow-hidden"
+        className="space-y-6 bg-white p-8 rounded-lg shadow-sm"
       >
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 opacity-50"></div>
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"></div>
+        {/* Email Field */}
+        <div className="group">
+          <label
+            htmlFor="email"
+            className="block text-sm font-semibold text-black mb-2"
+          >
+            Email Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            required
+            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-black focus:outline-none text-black placeholder-gray-400"
+            value={contactForm.email}
+            onChange={(e) =>
+              setContactForm({ ...contactForm, email: e.target.value })
+            }
+            placeholder="your.email@example.com"
+          />
+        </div>
 
-        <div className="relative z-10 space-y-8">
-          {/* Email Field */}
-          <div className="group">
-            <label
-              htmlFor="email"
-              className="block text-sm font-semibold text-gray-700 mb-3 transition-colors group-focus-within:text-blue-600"
+        {/* Service Type Field - Custom Dropdown */}
+        <div className="group service-dropdown-container relative">
+          <label
+            htmlFor="serviceType"
+            className="block text-sm font-semibold text-black mb-2"
+          >
+            Service Type
+          </label>
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
+              className={`w-full px-4 py-3 bg-white border rounded-lg text-left flex items-center justify-between ${
+                isServiceDropdownOpen
+                  ? "border-black"
+                  : "border-gray-300 hover:border-gray-400"
+              } ${!contactForm.serviceType ? "text-gray-400" : "text-black"}`}
             >
-              <span className="flex items-center gap-2">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                Email Address
+              <span className="flex items-center gap-3">
+                {selectedServiceOption ? (
+                  <>
+                    <span>{selectedServiceOption.icon}</span>
+                    <span>{selectedServiceOption.label}</span>
+                  </>
+                ) : (
+                  <span>Select a service</span>
+                )}
               </span>
-            </label>
-            <input
-              type="email"
-              id="email"
-              required
-              className="w-full px-5 py-4 bg-white/70 backdrop-blur-sm border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 focus:bg-white transition-all duration-300 outline-none text-gray-800 placeholder-gray-400 hover:border-gray-300 hover:bg-white/90"
-              value={contactForm.email}
-              onChange={(e) =>
-                setContactForm({ ...contactForm, email: e.target.value })
-              }
-              placeholder="your.email@example.com"
-            />
-          </div>
-
-          {/* Service Type Field - Custom Dropdown */}
-          <div className="group service-dropdown-container relative">
-            <label
-              htmlFor="serviceType"
-              className="block text-sm font-semibold text-gray-700 mb-3 transition-colors group-focus-within:text-purple-600"
-            >
-              <span className="flex items-center gap-2">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                Service Type
-              </span>
-            </label>
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
-                className={`w-full px-5 py-4 bg-white/70 backdrop-blur-sm border-2 rounded-xl transition-all duration-300 outline-none text-left flex items-center justify-between group-hover:border-purple-300 ${
-                  isServiceDropdownOpen
-                    ? "border-purple-500 ring-4 ring-purple-500/20 bg-white"
-                    : "border-gray-200 hover:border-gray-300 hover:bg-white/90"
-                } ${
-                  !contactForm.serviceType ? "text-gray-400" : "text-gray-800"
-                }`}
-              >
-                <span className="flex items-center gap-3">
-                  {selectedServiceOption ? (
-                    <>
-                      <span className="text-gray-700">
-                        {selectedServiceOption.icon}
-                      </span>
-                      <span className="font-medium">
-                        {selectedServiceOption.label}
-                      </span>
-                    </>
-                  ) : (
-                    <span>Select a service</span>
-                  )}
-                </span>
-                <svg
-                  className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
-                    isServiceDropdownOpen ? "rotate-180 text-purple-600" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              {/* Dropdown Menu */}
-              {isServiceDropdownOpen && (
-                <>
-                  <div
-                    className="fixed inset-0 z-40"
-                    onClick={() => setIsServiceDropdownOpen(false)}
-                  ></div>
-                  <div className="absolute z-50 w-full mt-2 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 backdrop-blur-xl border-2 border-purple-200/50 rounded-xl shadow-2xl overflow-hidden animate-dropdown-slide">
-                    <div className="max-h-80 overflow-y-auto custom-scrollbar">
-                      {serviceOptions.map((option, index) => (
-                        <button
-                          key={option.value}
-                          type="button"
-                          onClick={() => {
-                            setContactForm({
-                              ...contactForm,
-                              serviceType: option.value,
-                            });
-                            setIsServiceDropdownOpen(false);
-                          }}
-                          className={`w-full px-5 py-4 flex items-center gap-4 transition-all duration-200 group ${
-                            contactForm.serviceType === option.value
-                              ? "bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white border-l-4 border-white/50"
-                              : "hover:bg-gradient-to-r hover:from-blue-100 hover:via-purple-100 hover:to-pink-100 text-gray-700 hover:pl-6"
-                          }`}
-                          style={{
-                            animationDelay: `${index * 30}ms`,
-                          }}
-                        >
-                          <span
-                            className={`transition-all duration-200 group-hover:scale-110 ${
-                              contactForm.serviceType === option.value
-                                ? "scale-110 text-white"
-                                : "text-gray-700"
-                            }`}
-                          >
-                            {option.icon}
-                          </span>
-                          <span
-                            className={`flex-1 text-left font-medium transition-colors ${
-                              contactForm.serviceType === option.value
-                                ? "text-white"
-                                : "text-gray-700 group-hover:text-purple-600"
-                            }`}
-                          >
-                            {option.label}
-                          </span>
-                          {contactForm.serviceType === option.value && (
-                            <svg
-                              className="w-5 h-5 text-white animate-check-in"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 13l4 4L19 7"
-                              />
-                            </svg>
-                          )}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
-            {/* Hidden input for form validation */}
-            <input type="hidden" value={contactForm.serviceType} required />
-          </div>
-
-          {/* Budget Field */}
-          <div className="group">
-            <label
-              htmlFor="budget"
-              className="block text-sm font-semibold text-gray-700 mb-3 transition-colors group-focus-within:text-pink-600"
-            >
-              <span className="flex items-center gap-2">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                Budget (Optional)
-              </span>
-            </label>
-            <input
-              type="text"
-              id="budget"
-              className="w-full px-5 py-4 bg-white/70 backdrop-blur-sm border-2 border-gray-200 rounded-xl focus:border-pink-500 focus:ring-4 focus:ring-pink-500/20 focus:bg-white transition-all duration-300 outline-none text-gray-800 placeholder-gray-400 hover:border-gray-300 hover:bg-white/90"
-              value={contactForm.budget}
-              onChange={(e) =>
-                setContactForm({ ...contactForm, budget: e.target.value })
-              }
-              placeholder="1000$"
-            />
-          </div>
-
-          {/* Description Field */}
-          <div className="group">
-            <label
-              htmlFor="description"
-              className="block text-sm font-semibold text-gray-700 mb-3 transition-colors group-focus-within:text-indigo-600"
-            >
-              <span className="flex items-center gap-2">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                  />
-                </svg>
-                Project Description
-              </span>
-            </label>
-            <textarea
-              id="description"
-              required
-              rows={6}
-              className="w-full px-5 py-4 bg-white/70 backdrop-blur-sm border-2 border-gray-200 rounded-xl focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 focus:bg-white transition-all duration-300 outline-none text-gray-800 placeholder-gray-400 resize-none hover:border-gray-300 hover:bg-white/90"
-              value={contactForm.description}
-              onChange={(e) =>
-                setContactForm({
-                  ...contactForm,
-                  description: e.target.value,
-                })
-              }
-              placeholder="Describe your project vision and what you'd like to achieve..."
-            />
-          </div>
-
-          {/* Error Message */}
-          {submitMessage && submitMessage.type === "error" && (
-            <div className="p-4 rounded-xl bg-red-50 text-red-700 border-2 border-red-200 flex items-center gap-3 animate-shake">
               <svg
-                className="w-5 h-5 flex-shrink-0"
+                className={`w-5 h-5 transition-transform ${
+                  isServiceDropdownOpen ? "rotate-180" : ""
+                }`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -548,66 +341,160 @@ export default function ContactForm() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  d="M19 9l-7 7-7-7"
                 />
               </svg>
-              <span>{submitMessage.text}</span>
-            </div>
-          )}
+            </button>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none overflow-hidden group"
-          >
-            <span className="relative z-10 flex items-center justify-center gap-2">
-              {isSubmitting ? (
-                <>
-                  <svg
-                    className="animate-spin h-5 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                  Sending...
-                </>
-              ) : (
-                <>
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                    />
-                  </svg>
-                  Send Request
-                </>
-              )}
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </button>
+            {isServiceDropdownOpen && (
+              <>
+                <div
+                  className="fixed inset-0 z-40"
+                  onClick={() => setIsServiceDropdownOpen(false)}
+                ></div>
+                <div className="absolute z-50 w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
+                  <div className="max-h-80 overflow-y-auto">
+                    {serviceOptions.map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => {
+                          setContactForm({
+                            ...contactForm,
+                            serviceType: option.value,
+                          });
+                          setIsServiceDropdownOpen(false);
+                        }}
+                        className={`w-full px-4 py-3 flex items-center gap-3 text-left hover:bg-gray-50 ${
+                          contactForm.serviceType === option.value
+                            ? "bg-black text-white"
+                            : "text-black"
+                        }`}
+                      >
+                        <span>{option.icon}</span>
+                        <span className="flex-1">{option.label}</span>
+                        {contactForm.serviceType === option.value && (
+                          <svg
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+          {/* Hidden input for form validation */}
+          <input type="hidden" value={contactForm.serviceType} required />
         </div>
+
+        {/* Budget Field */}
+        <div className="group">
+          <label
+            htmlFor="budget"
+            className="block text-sm font-semibold text-black mb-2"
+          >
+            Budget (Optional)
+          </label>
+          <input
+            type="text"
+            id="budget"
+            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-black focus:outline-none text-black placeholder-gray-400"
+            value={contactForm.budget}
+            onChange={(e) =>
+              setContactForm({ ...contactForm, budget: e.target.value })
+            }
+            placeholder="1000$"
+          />
+        </div>
+
+        {/* Description Field */}
+        <div className="group">
+          <label
+            htmlFor="description"
+            className="block text-sm font-semibold text-black mb-2"
+          >
+            Project Description
+          </label>
+          <textarea
+            id="description"
+            required
+            rows={6}
+            className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:border-black focus:outline-none text-black placeholder-gray-400 resize-none"
+            value={contactForm.description}
+            onChange={(e) =>
+              setContactForm({
+                ...contactForm,
+                description: e.target.value,
+              })
+            }
+            placeholder="Describe your project vision and what you'd like to achieve..."
+          />
+        </div>
+
+        {submitMessage && submitMessage.type === "error" && (
+          <div className="p-4 rounded-lg bg-red-50 text-red-700 border border-red-200 flex items-center gap-3">
+            <svg
+              className="w-5 h-5 flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>{submitMessage.text}</span>
+          </div>
+        )}
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        >
+          {isSubmitting ? (
+            <>
+              <svg
+                className="animate-spin h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+              Sending...
+            </>
+          ) : (
+            "Send Request"
+          )}
+        </button>
       </form>
     </>
   );

@@ -83,9 +83,9 @@ export default function HeroSection() {
           {features.map((feature) => (
             <div key={feature.title} className="rounded-2xl p-5">
               <div className="flex flex-col items-center text-center">
-                <div className="mb-3 p-2 bg-black/20 rounded-lg">
+                <div className="mb-3 p-2 bg-white/20 rounded-lg">
                   <svg
-                    className="w-7 h-7 text-black"
+                    className="w-7 h-7 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ export default function HeroSection() {
                     {feature.icon}
                   </svg>
                 </div>
-                <h3 className="text-sm font-semibold text-black leading-tight px-1">
+                <h3 className="text-sm font-semibold text-white leading-tight px-1">
                   {feature.title}
                 </h3>
               </div>

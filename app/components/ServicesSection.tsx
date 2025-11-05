@@ -150,46 +150,33 @@ export default function ServicesSection({
   };
 
   return (
-    <section id="services" className="py-20 px-6 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50"></div>
-
-      {/* Decorative circles */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-pink-200/20 rounded-full blur-3xl"></div>
-
-      {/* Animated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-gradient opacity-50"></div>
-
-      <div className="container mx-auto max-w-6xl relative z-10">
+    <section id="services" className="py-20 px-6" style={{ backgroundColor: '#fffaea', fontFamily: '"Cy Grotesk Grand", sans-serif' }}>
+      <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-black">
             Our Services
           </h2>
-          <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+          <p className="text-lg text-black mt-4 max-w-2xl mx-auto">
             Professional website design, marketing agency services, and
             digital solutions to help your business attract more clients and
             grow online
           </p>
         </div>
-        {/* Main Categories with Dropdown */}
         <div className="grid md:grid-cols-3 gap-8">
           {Object.entries(serviceCategories).map(([category, data]) => {
             const isOpen = openCategory === category;
             return (
               <div key={category} className="relative">
-                {/* Category Card */}
                 <div
                   onClick={() => setOpenCategory(isOpen ? null : category)}
-                  className="p-8 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col cursor-pointer"
+                  className="p-8 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col cursor-pointer"
                 >
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    <h3 className="text-2xl font-semibold text-black">
                       {category}
                     </h3>
                     <svg
-                      className={`w-5 h-5 text-blue-600 transition-transform duration-300 ${
+                      className={`w-5 h-5 text-black transition-transform duration-300 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                       fill="none"
@@ -204,12 +191,10 @@ export default function ServicesSection({
                       />
                     </svg>
                   </div>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <p className="text-sm text-black mb-4">
                     {data.description}
                   </p>
                 </div>
-
-                {/* Dropdown Menu */}
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${
                     isOpen
@@ -230,12 +215,12 @@ export default function ServicesSection({
                             onServiceSelect(service);
                             setOpenCategory(null);
                           }}
-                          className="p-4 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-lg hover:shadow-md transition-all cursor-pointer border border-transparent hover:border-blue-200"
+                          className="p-4 bg-white rounded-lg hover:shadow-md transition-shadow cursor-pointer border border-gray-200 hover:border-blue-300"
                         >
-                          <h4 className="text-lg font-semibold mb-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                          <h4 className="text-lg font-semibold mb-2 text-black">
                             {service.title}
                           </h4>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-black">
                             {service.description}
                           </p>
                         </div>

@@ -12,14 +12,14 @@ export default function FAQItem({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border border-gray-200 rounded-lg bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 overflow-hidden">
+    <div className="border border-gray-300 rounded-lg bg-white overflow-hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/50 transition-colors"
+        className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
       >
-        <span className="font-semibold text-gray-900">{question}</span>
+        <span className="font-semibold text-black">{question}</span>
         <span
-          className={`text-2xl text-gray-500 transition-transform duration-300 ${
+          className={`text-2xl text-black transition-transform ${
             isOpen ? "rotate-180" : ""
           }`}
         >
@@ -31,10 +31,9 @@ export default function FAQItem({
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-6 pb-4 text-gray-700">{answer}</div>
+        <div className="px-6 pb-4 text-black">{answer}</div>
       </div>
     </div>
   );
 }
-
 
